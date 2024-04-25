@@ -25,13 +25,12 @@
     </administration>
 
     <!-- Site section -->
-    <!--files folder="site">
-        <folder>src</folder>
-        <file>audiofiles.php</file>
+    <files folder="site">
+		<folder>language</folder>
+		<folder>src</folder>
+		<folder>tmpl</folder>
+        <folder>forms</folder>
     </files>
-    <languages folder="site/languages">
-        <language tag="en-GB">en-GB.com_audiofiles.ini</language>
-    </languages-->
 
     <!-- Database tables -->
 	<install> <!-- Runs on install -->
@@ -39,6 +38,11 @@
 			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
 		</sql>
 	</install>
+	<uninstall> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.sql</file>
+		</sql>
+	</uninstall>
 	<update> <!-- Runs on update -->
 		<sql>
 			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>

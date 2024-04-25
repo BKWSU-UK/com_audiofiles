@@ -5,8 +5,23 @@
         <field name="title" type="text" label="Title" size="40" required="true" />
         <field name="description" type="textarea" label="Description" rows="5" cols="40" required="true" />
         <field name="artist_speaker" type="text" label="Artist" required="true" />
-        <field name="category" type="text" label="Category" />
-        <field name="thumbnail" type="media" label="Thumbnail" />
-        <field name="audio_file" type="media" label="Audio file" />
+        <field name="category" type="list" label="Category" validate="options" >
+            <option value="Abundance">Abundance</option>
+            <option value="Anger">Anger</option>
+            <option value="Challenges">Challenges</option>
+            <option value="Communication">Communication</option>
+            <option value="Confidence">Confidence</option>
+            <option value="Decisions">Decisions</option>
+            <option value="Emotions">Emotions</option>
+            <option value="Fear">Fear</option>
+        </field>
+        <field name="thumbnail" type="media" label="Thumbnail" types="images"/>
+        <field name="audio_file" type="media" label="Audio file" types="audios" />
+        <field name="state" type="list" label="JSTATUS" class="form-select-color-state" default="1" validate="options">
+            <option value="1">JPUBLISHED</option>
+            <option value="0">JUNPUBLISHED</option>
+            <option value="2">JARCHIVED</option>
+            <option value="-2">JTRASHED</option>
+        </field>
     </fieldset>
 </form>

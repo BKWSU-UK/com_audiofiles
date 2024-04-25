@@ -31,6 +31,15 @@ class AudiofilesModel extends ListModel
 		return $query;
     }
 
+	protected function getStoreId($id = '')
+	{
+		// Compile the store id.
+		$id .= ':' . $this->getState('filter.search');
+		$id .= ':' . $this->getState('filter.published');
+
+		return parent::getStoreId($id);
+	}
+
     public function getItems()
 	{
 		$items = parent::getItems();

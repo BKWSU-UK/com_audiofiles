@@ -11,9 +11,9 @@ class AudiofileModel extends AdminModel
 {
     protected $text_prefix = 'COM_AUDIOFILES';
 
-    public function getTable($type = 'Audiofile', $prefix = 'AdministratorTable', $config = array())
+    public function getTable($name = 'audiofile', $prefix = 'Table', $config = array())
     {
-        return parent::getTable($type, $prefix, $config);
+        return parent::getTable($name, $prefix, $config);
     }
 
     public function getForm($data = array(), $loadData = true)
@@ -33,10 +33,7 @@ class AudiofileModel extends AdminModel
     protected function loadFormData()
     {
         $app = Factory::getApplication();
-        $data = $app->getUserState(
-            'com_audiofiles.edit.audiofile.data',
-            array()
-        );
+        $data = $app->getUserState('com_audiofiles.edit.audiofile.data', array());
 
         if (empty($data)) {
             $data = $this->getItem();
@@ -46,6 +43,18 @@ class AudiofileModel extends AdminModel
 
         return $data;
     }
+
+    protected function canEditState($record)
+	{
+		// Check for existing article.
+		if (!empty($record->id))
+		{
+			return $this->getCurrentUser()->authorise('core.edit.state', 'com_audiofiles.audiofiles.' . (int) $record->id);
+		}
+
+		// Default to component settings if neither article nor category known.
+		return parent::canEditState($record);
+	}
 
     // protected function populateState($ordering = 'a.id', $direction = 'asc')
 	// {

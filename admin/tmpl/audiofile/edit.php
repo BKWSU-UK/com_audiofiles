@@ -18,7 +18,7 @@ HTMLHelper::_('behavior.formvalidator');
 HTMLHelper::_('behavior.keepalive');
 
 ?>
-<form action="<?php echo Route::_('index.php?option=com_audiofile&view=audiofile&layout=edit&id=' . (int) $this->item->id); ?>"
+<form action="<?php echo Route::_('index.php?option=com_audiofiles&view=audiofile&layout=edit&id=' . (int) $this->item->id); ?>"
 	method="post" name="adminForm" id="audiofiles-form" class="form-validate">
 
 	<?php echo LayoutHelper::render('joomla.edit.title_alias', $this); ?>
@@ -31,9 +31,12 @@ HTMLHelper::_('behavior.keepalive');
 			<div class="col-md-9">
 				<div class="row">
 					<div class="col-md-6">
-						<?php echo $this->form->renderField('description'); ?>
-						<?php echo $this->form->renderField('artist'); ?>
 						<?php echo $this->form->renderField('id'); ?>
+						<?php echo $this->form->renderField('description'); ?>
+						<?php echo $this->form->renderField('artist_speaker'); ?>
+						<?php echo $this->form->renderField('thumbnail'); ?>
+						<?php echo $this->form->renderField('audio_file'); ?>
+						<?php //echo $this->form->renderField('category'); ?>
 					</div>
 				</div>
 			</div>
@@ -47,7 +50,7 @@ HTMLHelper::_('behavior.keepalive');
 		</div>
 		<?php echo HTMLHelper::_('uitab.endTab'); ?>
 
-		<?php echo HTMLHelper::_('uitab.addTab', 'myTab', 'options', Text::_('COM_AUDIOFILES_AUDIOFILE_TAB_OPTIONS')); ?>
+		<?php /* echo HTMLHelper::_('uitab.addTab', 'myTab', 'options', Text::_('COM_AUDIOFILES_AUDIOFILE_TAB_OPTIONS')); ?>
 		<div class="row">
 			<div class="col-md-12">
 				<?php //echo $this->form->renderField('toilets'); ?>
@@ -66,7 +69,7 @@ HTMLHelper::_('behavior.keepalive');
 				<?php //echo $this->form->renderField('alt'); ?>
 			</div>
 		</div>
-		<?php echo HTMLHelper::_('uitab.endTab'); ?>
+		<?php echo HTMLHelper::_('uitab.endTab'); */?>
 
 		<?php echo HTMLHelper::_('uitab.endTabSet'); ?>
 	</div>

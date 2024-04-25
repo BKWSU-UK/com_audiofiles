@@ -4,9 +4,11 @@ namespace BKWSU\Component\Audiofiles\Administrator\View\Audiofiles;
 
 defined('_JEXEC') or die;
 
+use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\Log\Log;
 use Joomla\CMS\MVC\View\GenericDataException;
+//use Joomla\CMS\Toolbar\ToolbarFactoryInterface;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
 use Joomla\CMS\Helper\ContentHelper;
@@ -22,6 +24,7 @@ class HtmlView extends BaseHtmlView
         $this->items = $this->get('Items');
         $this->state = $this->get('State');
 		$this->pagination = $this->get('Pagination');
+		$this->filterForm    = $this->get('FilterForm');
 
         //ToolBarHelper::preferences('com_audiofiles');
 
@@ -38,13 +41,14 @@ class HtmlView extends BaseHtmlView
     protected function addToolbar()
     {
         $toolbar = Toolbar::getInstance('toolbar');
+		//$toolbar = Factory::getContainer()->get(ToolbarFactoryInterface::class)->createToolbar('toolbar');
 
         ToolbarHelper::title(Text::_('COM_AUDIOFILES_AUDIOFILES_PAGE_TITLE'), 'audiofiles');
 
         $canDo = ContentHelper::getActions('com_audiofiles');
 
         if ($canDo->get('core.create')) {
-            $toolbar->addNew('audiofiles.add');
+            $toolbar->addNew('audiofile.add');
         }
 
         if ($canDo->get('core.edit.state'))
