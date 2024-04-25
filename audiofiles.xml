@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+    <name>com_audiofiles</name>
+    <author>Allan Schweitz</author>
+    <creationDate>April 24, 2024</creationDate>
+    <license>GNU General Public License version 2 or later</license>
+    <version>1.0.0</version>
+    <description>Component to manage and display audio files.</description>
+    <namespace path="src">BKWSU\Component\Audiofiles</namespace>
+
+    <!-- Administration section -->
+    <administration>
+        <!-- Menu item in admin area -->
+        <menu img="class:default" link="option=com_audiofiles">Audio Files</menu>
+        <files folder="admin">
+            <folder>forms</folder>
+            <folder>services</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+            <folder>language</folder>
+            <folder>sql</folder>
+            <file>config.xml</file>
+            <file>access.xml</file>
+        </files>
+    </administration>
+
+    <!-- Site section -->
+    <!--files folder="site">
+        <folder>src</folder>
+        <file>audiofiles.php</file>
+    </files>
+    <languages folder="site/languages">
+        <language tag="en-GB">en-GB.com_audiofiles.ini</language>
+    </languages-->
+
+    <!-- Database tables -->
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</install>
+	<update> <!-- Runs on update -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.sql</file>
+		</sql>
+	</update>
+
+    <!-- Update servers (optional, if you plan to provide updates for your component) -->
+    <!--updateservers>
+        <server type="extension" name="Audio Files Update Server">https://your-update-server.com/update.xml</server>
+    </updateservers-->
+</extension>
