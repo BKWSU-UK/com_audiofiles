@@ -2,6 +2,20 @@
 <form>
     <fields name="filter">
         <field name="search" type="text" label="COM_AUDIOFILES_AUDIOFILES_FILTER_SEARCH_TITLE_LABEL" description="COM_AUDIOFILES_AUDIOFILES_FILTER_SEARCH_TITLE_DESC" class="search-input w-full h-[56px] lg:h-[75px] rounded-15px placeholder-deep-maroon text-24px lg:text-30px px-4 lg:px-8 Montserrat-Medium capitalize" hint="JSEARCH_FILTER" />
+        <field name="category" type="list" label="Audio Categories" onchange="this.form.submit();">
+            <option value="Abundance">Abundance</option>
+            <option value="Anger">Anger</option>
+            <option value="Challenges">Challenges</option>
+            <option value="Communication">Communication</option>
+            <option value="Confidence">Confidence</option>
+            <option value="Decisions">Decisions</option>
+            <option value="Emotions">Emotions</option>
+            <option value="Fear">Fear</option>
+            <option value="Letting go">Letting go</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Spirituality">Spirituality</option>
+            <option value="Virtues">Virtues</option>
+        </field>
     </fields>
 
     <fields name="list">

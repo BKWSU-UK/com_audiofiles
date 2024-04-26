@@ -55,6 +55,15 @@ class AudiofilesModel extends ListModel
 				'a.*'));
 		$query->from($db->quoteName('#__audiofiles') . ' AS a');
 
+		$category = (string) $this->getState('filter.category');
+		Log::add('Entered getListQuery - filter param: ' . trim($category), Log::DEBUG);
+		if ($category !== '')
+		{
+			//$query->where($db->quoteName('a.category') . ' = :category')
+			//->bind(':category', $category, ParameterType::INTEGER);
+			$query->where($db->quoteName('a.category') . " = '" . $db->escape(trim($category)) . "'");
+		}
+
 		// Filter by search in title.
 		$search = $this->getState('filter.search');
 
