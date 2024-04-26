@@ -17,7 +17,7 @@ class AudiofilesController extends AdminController
 {
 	public function getModel($name = 'Audiofile', $prefix = 'Administrator', $config = array('ignore_request' => true))
 	{
-		Log::add('Entered AudiofilesController');
+		Log::add('Entered AudiofilesController', Log::ERROR);
 		//app = Factory::getApplication();
 		//$model = $app->bootComponent('com_plugins')->getMVCFactory()->createModel('Plugin', 'Administrator', ['ignore_request' => true]);
 		

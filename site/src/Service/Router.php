@@ -10,7 +10,7 @@ use Joomla\CMS\Component\ComponentHelper;
 use Joomla\CMS\Component\Router\RouterView;
 use Joomla\CMS\Component\Router\RouterViewConfiguration;
 use Joomla\CMS\Component\Router\Rules\MenuRules;
-//use Joomla\CMS\Component\Router\Rules\NomenuRules;
+use Joomla\CMS\Component\Router\Rules\NomenuRules;
 //use J4xdemos\Component\Mywalks\Site\Service\MywalksNomenuRules as NomenuRules;
 use Joomla\CMS\Component\Router\Rules\StandardRules;
 use Joomla\CMS\Menu\AbstractMenu;
@@ -41,6 +41,6 @@ class Router extends RouterView
 
 		$this->attachRule(new MenuRules($this));
 		$this->attachRule(new StandardRules($this));
-		//$this->attachRule(new NomenuRules($this));
+		$this->attachRule(new NomenuRules($this));
 	}
 }

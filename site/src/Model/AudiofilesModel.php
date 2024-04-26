@@ -6,6 +6,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\MVC\Model\ListModel;
 use Joomla\Database\ParameterType;
+use Joomla\CMS\Log\Log;
 
 class AudiofilesModel extends ListModel
 {
@@ -42,7 +43,7 @@ class AudiofilesModel extends ListModel
 
 	protected function getListQuery()
 	{
-
+		Log::add('Entered getListQuery', Log::DEBUG);
 		// Create a new query object.
 		$db    = $this->getDatabase();
 		$query = $db->getQuery(true);
@@ -57,11 +58,13 @@ class AudiofilesModel extends ListModel
 		// Filter by search in title.
 		$search = $this->getState('filter.search');
 
+		Log::add('Entered getListQuery - search param: ' . trim($search), Log::DEBUG);
+
 		if (!empty($search))
 		{
-			$search = '%' . trim($search) . '%';
-			$query->where($db->quoteName('a.title') . ' LIKE :search')
-			->bind(':search', $search, ParameterType::STRING);
+			$search = '%' . $db->escape(trim($search)) . '%';
+			//$query->where($db->quoteName('a.title') . ' LIKE :search')->bind(':search', $search, ParameterType::STRING);
+			$query->where($db->quoteName('a.title') . " LIKE '" . $search . "'");
 		}
 
 		// Add the list ordering clause.
@@ -77,7 +80,8 @@ class AudiofilesModel extends ListModel
         }
 
         $query->order($ordering);
-
+		Log::add('Entered getListQuery - query: ' . $query->__toString(), Log::DEBUG);
+		
 		return $query;
 	}
 }
