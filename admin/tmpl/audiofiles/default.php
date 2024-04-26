@@ -30,16 +30,19 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                         <?php echo HTMLHelper::_('grid.checkall'); ?>
                     </th>
                     <th>
-                        <?php echo HTMLHelper::_('grid.sort', 'COM_AUDIOFILES_HEADING_TITLE', 'title', $listDirn, $listOrder); ?>
+                        <?php echo Text::_('COM_AUDIOFILES_HEADING_THUMBNAIL'); ?>
                     </th>
                     <th width="20%">
+                        <?php echo HTMLHelper::_('grid.sort', 'COM_AUDIOFILES_HEADING_TITLE', 'title', $listDirn, $listOrder); ?>
+                    </th>
+                    <th width="35%">
+                        <?php echo Text::_('COM_AUDIOFILES_HEADING_DESC'); ?>
+                    </th>
+                    <th width="10%">
                         <?php echo Text::_('COM_AUDIOFILES_HEADING_ARTIST'); ?>
                     </th>
                     <th width="10%">
                         <?php echo Text::_('COM_AUDIOFILES_HEADING_CATEGORY'); ?>
-                    </th>
-                    <th width="10%">
-                        <?php echo Text::_('COM_AUDIOFILES_HEADING_THUMBNAIL'); ?>
                     </th>
                     <th width="10%">
                         <?php echo Text::_('COM_AUDIOFILES_HEADING_AUDIO_FILE'); ?>
@@ -56,18 +59,21 @@ $listDirn  = $this->escape($this->state->get('list.direction'));
                         <?php echo HTMLHelper::_('grid.id', $i, $item->id); ?>
                     </td>
                     <td>
+                        <img src="<?php echo Uri::root() . $this->escape($item->thumbnail); ?>" alt="<?php echo Text::_('COM_AUDIOFILES_THUMBNAIL_ALT'); ?>" style="width:100px;">
+                    </td>
+                    <td>
                         <a class="hasTooltip" href="<?php echo Route::_('index.php?option=com_audiofiles&task=audiofile.edit&id=' . $item->id); ?>">
                         <span class="fa fa-pen-square me-2" aria-hidden="true"></span><?php echo $this->escape($item->title); ?>
 						</a>
+                    </td>
+                    <td>
+                        <?php echo $item->description; ?>
                     </td>
                     <td>
                         <?php echo $this->escape($item->artist_speaker); ?>
                     </td>
                     <td>
                         <?php echo $this->escape($item->category); ?>
-                    </td>
-                    <td>
-                        <img src="<?php echo Uri::root() . $this->escape($item->thumbnail); ?>" alt="<?php echo Text::_('COM_AUDIOFILES_THUMBNAIL_ALT'); ?>" style="width:100px;">
                     </td>
                     <td>
                     <audio src="<?php echo Uri::root() . $this->escape($item->audio_file); ?>" controls preload="none"></audio>

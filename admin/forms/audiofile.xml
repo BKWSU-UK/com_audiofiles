@@ -3,7 +3,7 @@
     <fieldset name="details" label="COM_AUDIOFILES_DETAILS">
         <field name="id" type="number" label="ID" default="0" class="readonly" readonly="true" />
         <field name="title" type="text" label="Title" size="40" required="true" />
-        <field name="description" type="textarea" label="Description" rows="5" cols="40" required="true" />
+        <field name="description" type="textarea" label="Description" rows="5" cols="60" required="true" filter="raw"/>
         <field name="artist_speaker" type="text" label="Artist" required="true" />
         <field name="category" type="list" label="Category" validate="options" >
             <option value="Abundance">Abundance</option>
@@ -14,6 +14,10 @@
             <option value="Decisions">Decisions</option>
             <option value="Emotions">Emotions</option>
             <option value="Fear">Fear</option>
+            <option value="Letting go">Letting go</option>
+            <option value="Relationship">Relationship</option>
+            <option value="Spirituality">Spirituality</option>
+            <option value="Virtues">Virtues</option>
         </field>
         <field name="thumbnail" type="media" label="Thumbnail" types="images"/>
         <field name="audio_file" type="media" label="Audio file" types="audios" />
