@@ -56,32 +56,33 @@ $doc->addScriptDeclaration('
     classes and talks.
   </p>
 </div>
+<div class="relative p-4 lg:px-8 h-auto bg-light-cream">
+  <form action="<?php echo Route::_('index.php?option=com_audiofiles'); ?>" method="post" name="adminForm" id="adminForm">
 
-<form action="<?php echo Route::_('index.php?option=com_audiofiles'); ?>" method="post" name="adminForm" id="adminForm">
+    <?php echo LayoutHelper::render('joomla.searchtools.audiosearch', array('view' => $this)); ?>
 
-  <?php echo LayoutHelper::render('joomla.searchtools.audiosearch', array('view' => $this)); ?>
-
-  <?php foreach ($this->items as $id => $item):
-    $slug = preg_replace('/[^a-z\d]/i', '-', $item->title);
-    $slug = strtolower(str_replace(' ', '-', $slug));
-    ?>
-    <div class="transition-all audio-container virtue-shadow">
-          <div><img src="<?php echo Uri::root() . $this->escape($item->thumbnail); ?>" alt="<?php echo $item->title; ?>" class="object-cover w-full lg:h-[15rem] aspect-video rounded-15px animation-hover"></div>
-      <div class="flex flex-col justify-between w-full col-span-4 lg:px-6">
-          <h1 class="audio-title"><?php echo $item->title; ?></h1>
-          <section><div class="text-block audio-paragraph"><div class="text"><?php echo $item->description; ?></div><button class="toggle-btn underline cursor-pointer mr-autio text-deep-maroon">Read more</button></div></section>
-          <div class="flex items-center justify-between w-full py-4">
-              <audio controls="" class="w-full">
-                  <source src="<?php echo Uri::root() . $this->escape($item->audio_file); ?>">
-                  Your browser does not support the audio element.
-              </audio>
-          </div>
+    <?php foreach ($this->items as $id => $item):
+      $slug = preg_replace('/[^a-z\d]/i', '-', $item->title);
+      $slug = strtolower(str_replace(' ', '-', $slug));
+      ?>
+      <div class="transition-all audio-container virtue-shadow">
+            <div><img src="<?php echo Uri::root() . $this->escape($item->thumbnail); ?>" alt="<?php echo $item->title; ?>" class="object-cover w-full lg:h-[15rem] aspect-video rounded-15px animation-hover"></div>
+        <div class="flex flex-col justify-between w-full col-span-4 lg:px-6">
+            <h1 class="audio-title"><?php echo $item->title; ?></h1>
+            <section><div class="text-block audio-paragraph"><div class="text"><?php echo $item->description; ?></div><button class="toggle-btn underline cursor-pointer mr-autio text-deep-maroon">Read more</button></div></section>
+            <div class="flex items-center justify-between w-full py-4">
+                <audio controls="" class="w-full">
+                    <source src="<?php echo Uri::root() . $this->escape($item->audio_file); ?>">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </div>
       </div>
-    </div>
-  <?php endforeach;?>
-  <?php echo $this->pagination->getListFooter(); ?>
-  <input type="hidden" name="task" value="">
-  <input type="hidden" name="boxchecked" value="0">
-  <?php echo HTMLHelper::_('form.token'); ?>
+    <?php endforeach;?>
+    <?php echo $this->pagination->getListFooter(); ?>
+    <input type="hidden" name="task" value="">
+    <input type="hidden" name="boxchecked" value="0">
+    <?php echo HTMLHelper::_('form.token'); ?>
 
-</form>
+  </form>
+</div>
