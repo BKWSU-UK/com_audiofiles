@@ -17,7 +17,8 @@ $doc->addStyleDeclaration('
  /* The container must be positioned relative: */
  .custom-select {
   position: relative;
-  font-family: Arial;
+  font-family: \'Montserrat-Medium\';
+  width:260px;
 }
 
 .custom-select select {
@@ -25,30 +26,32 @@ $doc->addStyleDeclaration('
 }
 
 .select-selected {
-  background-color: DodgerBlue;
+  background-color: white;
 }
 
 /* Style the arrow inside the select element: */
 .select-selected:after {
+  --tw-text-opacity: 1;
+  color: rgb(113 41 59 / var(--tw-text-opacity));
   position: absolute;
   content: "";
-  top: 14px;
+  top: 24px;
   right: 10px;
   width: 0;
   height: 0;
-  border: 6px solid transparent;
-  border-color: #fff transparent transparent transparent;
+  border: 8px solid transparent;
+  border-color: rgb(113 41 59) transparent transparent transparent;
 }
 
 /* Point the arrow upwards when the select box is open (active): */
 .select-selected.select-arrow-active:after {
-  border-color: transparent transparent #fff transparent;
-  top: 7px;
+  border-color: transparent transparent rgb(113 41 59) transparent;
+  top: 17px;
 }
 
 /* style the items (options), including the selected item: */
 .select-items div,.select-selected {
-  color: #ffffff;
+  /*color: #ffffff;*/
   padding: 8px 16px;
   border: 1px solid transparent;
   border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
@@ -57,8 +60,9 @@ $doc->addStyleDeclaration('
 
 /* Style items (options): */
 .select-items {
+    margin-top: 24px;
   position: absolute;
-  background-color: DodgerBlue;
+  background-color: white;
   top: 100%;
   left: 0;
   right: 0;
@@ -117,8 +121,8 @@ $doc->addScriptDeclaration('
       x[i].appendChild(a);
       /* For each element, create a new DIV that will contain the option list: */
       b = document.createElement("DIV");
-      b.setAttribute("class", "select-items select-hide");
-      for (j = 1; j < ll; j++) {
+      b.setAttribute("class", "select-items select-hide virtue-shadow");
+      for (j = 0; j < ll; j++) {
         /* For each option in the original select element,
         create a new DIV that will act as an option item: */
         c = document.createElement("DIV");
@@ -140,6 +144,8 @@ $doc->addScriptDeclaration('
                   y[k].removeAttribute("class");
                 }
                 this.setAttribute("class", "same-as-selected");
+                var event = new Event(\'change\', { \'bubbles\': true }); // Create a change event
+                s.dispatchEvent(event); // Dispatch it
                 break;
               }
             }
@@ -180,8 +186,6 @@ $doc->addScriptDeclaration('
       }
     }
     document.addEventListener("click", closeAllSelect);
-
-
   });
 ');
 ?>

@@ -3,6 +3,7 @@
     <fields name="filter">
         <field name="search" type="text" label="COM_AUDIOFILES_AUDIOFILES_FILTER_SEARCH_TITLE_LABEL" description="COM_AUDIOFILES_AUDIOFILES_FILTER_SEARCH_TITLE_DESC" class="search-input w-full h-[56px] lg:h-[75px] rounded-15px placeholder-deep-maroon text-24px lg:text-30px px-4 lg:px-8 Montserrat-Medium capitalize" hint="JSEARCH_FILTER" />
         <field name="category" type="list" label="Audio Categories" onchange="this.form.submit();">
+            <option value="">Audio Categories</option>
             <option value="Abundance">Abundance</option>
             <option value="Anger">Anger</option>
             <option value="Challenges">Challenges</option>
