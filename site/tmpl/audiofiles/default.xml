@@ -18,8 +18,8 @@
 		<!-- Add fields to the parameters object for the layout. -->
 
 		<!-- Scroll. -->
-		<fieldset name="basic">
-
+		<fieldset name="options">
+			<field name="page_introduction" type="editor" label="COM_AUDIOFILES_AUDIOFILES_PAGE_INTRO" description="COM_AUDIOFILES_AUDIOFILES_DESC_PAGE_INTRO" width="400" filter="safehtml"/>
 		</fieldset>
 
 		<!-- Advanced options. -->

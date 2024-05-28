@@ -12,6 +12,7 @@ $listOrder = $this->escape($this->state->get('list.ordering'));
 $listDirn = $this->escape($this->state->get('list.direction'));
 
 $doc = Factory::getApplication()->getDocument();
+$pageIntro = $this->params->get('page_introduction');
 
 $doc->addStyleDeclaration('
  /* The container must be positioned relative: */
@@ -197,12 +198,8 @@ $doc->addScriptDeclaration('
       </div>
   </div>
 <?php endif;?>
-<div class="w-full">
-  <p class="p-4 px-5 my-2 intro lg:p-8 lg:px-10">
-    Here you will find videos of past events so you can catch up on what’ s
-    been happening and hear what our speakers have been sharing in their
-    classes and talks.
-  </p>
+<div class="w-full p-4 px-5 my-2 intro lg:p-8 lg:px-10">
+  <?php echo $pageIntro; ?>
 </div>
 <div class="relative p-4 lg:px-8 h-auto bg-light-cream">
   <form action="<?php echo Route::_('index.php?option=com_audiofiles'); ?>" method="post" name="adminForm" id="adminForm">
