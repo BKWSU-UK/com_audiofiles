@@ -5,17 +5,22 @@
         <field name="category" type="list" label="Audio Categories" onchange="this.form.submit();">
             <option value="">Audio Categories</option>
             <option value="Abundance">Abundance</option>
-            <option value="Anger">Anger</option>
-            <option value="Challenges">Challenges</option>
+            <option value="Calm">Calm</option>
             <option value="Communication">Communication</option>
             <option value="Confidence">Confidence</option>
-            <option value="Decisions">Decisions</option>
             <option value="Emotions">Emotions</option>
-            <option value="Fear">Fear</option>
+            <option value="Festivals">Festivals</option>
+            <option value="Habits">Habits</option>
+            <option value="Healing">Healing</option>
+            <option value="Karma">Karma</option>
             <option value="Letting go">Letting go</option>
+            <option value="Meditation">Meditation</option>
+            <option value="Motivation">Motivation</option>
             <option value="Relationship">Relationship</option>
             <option value="Spirituality">Spirituality</option>
+            <option value="Values">Values</option>
             <option value="Virtues">Virtues</option>
+            <option value="Wisdom">Wisdom</option>
         </field>
     </fields>
 
